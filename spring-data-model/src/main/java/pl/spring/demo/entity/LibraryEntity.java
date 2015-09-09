@@ -14,6 +14,7 @@ public class LibraryEntity implements Serializable {
     @OneToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", nullable = true)
     private AddressEntity address;
+    private String type;
     @OneToMany(mappedBy = "library", orphanRemoval = false, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Set<BookEntity> books;
     @Version
@@ -49,6 +50,14 @@ public class LibraryEntity implements Serializable {
 
     public void setBooks(Set<BookEntity> books) {
         this.books = books;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public long getVersion() {

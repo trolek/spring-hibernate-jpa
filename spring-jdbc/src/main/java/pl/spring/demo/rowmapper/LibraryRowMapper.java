@@ -18,6 +18,7 @@ public class LibraryRowMapper implements RowMapper<LibraryTo> {
         library.setId(rs.getLong(1));
         library.setName(rs.getString(2));
         library.setAddress(mapAddressById(rs.getLong(3)));
+        library.setType(rs.getString(4));
         return library;
     }
 

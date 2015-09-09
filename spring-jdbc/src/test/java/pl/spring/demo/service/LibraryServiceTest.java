@@ -53,6 +53,18 @@ public class LibraryServiceTest {
     }
 
     @Test
+    public void testShouldReturnLibraryByType() {
+        // given
+        final String libraryType = "national";
+        // when
+        List<LibraryTo> libraries = libraryService.findAllLibrariesByType(libraryType);
+        // then
+        assertNotNull(libraries);
+        assertFalse(libraries.isEmpty());
+        assertEquals(libraryType, libraries.get(0).getType());
+    }
+
+    @Test
     public void testShouldReturnLibrariesHavingBookTitle() {
         // given
         final String bookTitle = "Sample Book";

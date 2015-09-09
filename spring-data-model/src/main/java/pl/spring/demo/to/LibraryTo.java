@@ -6,6 +6,7 @@ public class LibraryTo {
     private Long id;
     private String name;
     private AddressTo address;
+    private String type;
     private Set<BookTo> books;
     private long version;
 
@@ -35,6 +36,14 @@ public class LibraryTo {
 
     public Set<BookTo> getBooks() {
         return books;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setBooks(Set<BookTo> books) {

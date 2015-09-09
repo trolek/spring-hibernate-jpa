@@ -20,4 +20,7 @@ public interface LibraryRepository extends JpaRepository<LibraryEntity, Long>, L
 
     @Query("from LibraryEntity l where exists (select 1 from BookEntity b where b.library.id = l.id and b.title = :bookTitle)")
     List<LibraryEntity> findLibrariesThatHaveBookByTitle(@Param("bookTitle") String bookTitle);
+
+    @Query("from LibraryEntity l where l.type like :type%")
+    List<LibraryEntity> findByType(@Param("type") String type);
 }
